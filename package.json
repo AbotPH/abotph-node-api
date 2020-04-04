@@ -7,7 +7,7 @@
     "postinstall": "link-module-alias",
     "dev": "nodemon bin/dev",
     "prod": "npm run build && nodemon bin/prod",
-    "build": "npm run clean && mkdir dist &7 babel src -s -d dist",
+    "build": "npm run clean && mkdir dist && babel src -s -d dist",
     "clean": "rm -rf dist",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js --fix"
@@ -30,10 +30,12 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/register": "^7.9.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-import-resolver-alias": "^1.1.2",

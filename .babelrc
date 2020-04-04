@@ -3,6 +3,13 @@
 		"@babel/env"
 	],
 	"plugins": [
-		"@babel/transform-runtime"
+		"@babel/transform-runtime",
+		["module-resolver", {
+			"root": ["./src"],
+			"alias": {
+				"~": "./src",
+				"~logger": "./src/configs/winston.config"
+			}
+		}]
 	]
 }
