@@ -1,0 +1,47 @@
+{
+  "name": "abotph-node-api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "preinstall": "command -v link-module-alias && link-module-alias clean || true",
+    "postinstall": "link-module-alias",
+    "dev": "nodemon bin/dev",
+    "prod": "npm run build && nodemon bin/prod",
+    "build": "npm run clean && mkdir dist &7 babel src -s -d dist",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv-safe": "^8.2.0",
+    "express": "~4.16.1",
+    "link-module-alias": "^1.2.0",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.3"
+  },
+  "_moduleAliases": {
+    "~": "./src",
+    "~logger": "./src/configs/winston.config.js"
+  }
+}
